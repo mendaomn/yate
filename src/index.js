@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {string} title
+ * @param {function} cb 
+ */
 function test(title, cb) {
   try {
     cb()
