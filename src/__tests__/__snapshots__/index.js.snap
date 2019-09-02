@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`yate.expect should throw when doesn't match 1`] = `"42 is not equal to 43"`;
+
+exports[`yate.expect should throw when doesn't match 2`] = `"string is not equal to STRING"`;
+
+exports[`yate.expect should throw when doesn't match 3`] = `"true is not equal to false"`;
+
+exports[`yate.expect should throw when doesn't match 4`] = `"{\\"a\\":1} is not equal to {\\"a\\":2}"`;
+
+exports[`yate.expect should throw when doesn't match 5`] = `"[2,4] is not equal to [4,2]"`;
+
+exports[`yate.test should catch exceptions thrown by the test function 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "FAIL: test title
+    
+    Error: should't fire",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`yate.test should run the test function 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "PASS: ",
+      "test title",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;

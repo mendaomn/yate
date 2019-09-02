@@ -13,12 +13,12 @@ describe('yate.expect', () => {
   });
 
   test('should throw when doesn\'t match', () => {
-    expect(() => yate.expect(42).toBe(43)).toThrow()
-    expect(() => yate.expect("string").toBe("STRING")).toThrow()
-    expect(() => yate.expect(true).toBe(false)).toThrow()
+    expect(() => yate.expect(42).toBe(43)).toThrowErrorMatchingSnapshot()
+    expect(() => yate.expect("string").toBe("STRING")).toThrowErrorMatchingSnapshot()
+    expect(() => yate.expect(true).toBe(false)).toThrowErrorMatchingSnapshot()
 
-    expect(() => yate.expect({a: 1}).toEqual({a: 2})).toThrow()
-    expect(() => yate.expect([2, 4]).toEqual([4, 2])).toThrow()
+    expect(() => yate.expect({a: 1}).toEqual({a: 2})).toThrowErrorMatchingSnapshot()
+    expect(() => yate.expect([2, 4]).toEqual([4, 2])).toThrowErrorMatchingSnapshot()
   });
 })
 
@@ -44,6 +44,7 @@ describe('yate.test', () => {
 
     expect(testFn).toHaveBeenCalledTimes(1)
     expect(testFn).toHaveBeenCalledWith()
+    expect(console.log).toMatchSnapshot()
   });
 
   test('should catch exceptions thrown by the test function', () => {
@@ -51,7 +52,12 @@ describe('yate.test', () => {
     const testFn = jest.fn(() => { throw new Error('should\'t fire') })
 
     expect(() => yate.test(title, testFn)).not.toThrow()
+    expect(console.error).toMatchSnapshot()
   });
+
+  test('should log a helpful error message', () => {
+
+  })
 });
 
 describe('yate.spy', () => {

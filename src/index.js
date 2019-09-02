@@ -8,9 +8,9 @@ function test(title, cb) {
     cb()
     console.log('PASS: ', title)
   } catch(err) {
-    console.error('FAIL: ', title)
-    console.error("")
-    console.error(err)
+    console.error(`FAIL: ${title}
+    
+    ${err}`)
   }
 }
 
